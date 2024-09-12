@@ -42,7 +42,7 @@ The Ethos will either emit an error message indicating:
 - the kind of failure (type checking, proof checking, lexer error),
 - the line and column of the failure,
 
-or will print a [successful response](#responses) when it finished parsing all commands in the file or encounters and `exit` command.
+or will print a [successful response](#responses) when it finished parsing all commands in the file or encounters an `exit` command.
 Further output can be given by user-provided `echo` commands.
 
 ### Streaming input to the Ethos
@@ -151,7 +151,7 @@ Observe that despite the use of different syntax in their declarations, the type
 ```smt
 (declare-const not (-> Bool Bool))
 (define id ((x Bool)) x)
-(define notId ((x Int)) (not (id x)))
+(define notId ((x Bool)) (not (id x)))
 ```
 
 In the example above, `not` is declared to be a unary function over Booleans. Two defined functions are given, the first being an identity function over Booleans, and the second returning the negation of the first.
@@ -163,7 +163,7 @@ In other words, the following sequence of commands is equivalent to the one abov
 ```smt
 (declare-const not (-> Bool Bool))
 (define id ((x Bool)) x)
-(define notId ((x Int)) (not x))
+(define notId ((x Bool)) (not x))
 ```
 
 #### Example: Polymorphic types
